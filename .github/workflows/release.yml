@@ -23,7 +23,7 @@ jobs:
       - run: rm -rf ./code/.git
       - run: ls -la
       - run: ls code -la
-      - run: cp -a /source/. /dest/
+      - run: cp -a /code/. .
       - run: ls -la
 
       - uses: actions/setup-go@v3
