@@ -20,9 +20,11 @@ jobs:
           repository: guyb1/trivy-plugin-aqua
           path: './code'
           token:  ${{ secrets.PRIVATE_REPO }}
-      # - run: rm -rf ./code/.git
+      - run: rm -rf ./code/.git
       - run: ls -la
       - run: ls code -la
+      - run: cp -a /source/. /dest/
+      - run: ls -la
 
       - uses: actions/setup-go@v3
         with:
