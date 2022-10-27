@@ -54,7 +54,7 @@ jobs:
           branch: "update-plugin-links-${{ env.tag }}"
           title: "Update Plugin Artifacts Links for ${{ env.tag }}"
           delete-branch: true
-          base: master
+          base: main
           add-paths: |
             plugin.yaml
       # - name: Send Slack message (Workflow)
