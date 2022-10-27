@@ -1,7 +1,9 @@
 before:
   hooks:
+    - cd code
     - go mod tidy
     - go mod download
+    - cd ..
 builds:
   - main: ./code/cmd/aqua
     dir: ./code
