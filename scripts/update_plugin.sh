@@ -56,7 +56,7 @@ function incr_semver() {
 
 validate_input
 
-git checkout master
+# git checkout master
 git fetch --tags --all
 git pull
 
