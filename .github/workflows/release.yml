@@ -36,17 +36,22 @@ jobs:
         id: previoustag
         uses: "WyriHaximus/github-action-get-previous-tag@v1"
 
+      - name: "Set chosen tag"
+        env:
+          TAG: ${{ github.event.inputs.tag || steps.previoustag.outputs.tag }}
+
+
       - name: Update plugin Links
         run: |
-          sed  -e "s/PLACEHOLDERVERSION/${{ github.event.inputs.tag || steps.previoustag.outputs.tag }}/g" .github/plugin_template.yaml > plugin.yaml
+          sed  -e "s/PLACEHOLDERVERSION/${{ env.TAG }}/g" .github/plugin_template.yaml > plugin.yaml
 
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.PR_CREATION_TOKEN }}
-          branch: "update-plugin-links-${{github.ref_name}}"
-          title: "Update Plugin Artifacts Links for ${{github.ref_name}}"
+          branch: "update-plugin-links-${{ env.TAG }}"
+          title: "Update Plugin Artifacts Links for ${{ env.TAG }}"
           delete-branch: true
           base: master
           add-paths: |
