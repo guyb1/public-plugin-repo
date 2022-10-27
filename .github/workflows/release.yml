@@ -50,7 +50,7 @@ jobs:
         id: cpr
         uses: peter-evans/create-pull-request@v4
         with:
-          token: ${{ secrets.PR_CREATION_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           branch: "update-plugin-links-${{ env.tag }}"
           title: "Update Plugin Artifacts Links for ${{ env.tag }}"
           delete-branch: true
