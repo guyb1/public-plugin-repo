@@ -40,7 +40,7 @@ jobs:
         env:
           TAG: ${{ github.event.inputs.tag || steps.previoustag.outputs.tag }}
         run: |
-          echo "tag=${COMMIT_VAR}" >> $GITHUB_ENV
+          echo "tag=${TAG}" >> $GITHUB_ENV
 
       - name: Update plugin Links
         run: |
