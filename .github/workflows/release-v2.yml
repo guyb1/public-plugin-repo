@@ -21,6 +21,10 @@ jobs:
       #     echo $RELEASE_VERSION
       #     echo ${{ env.RELEASE_VERSION }}
 
+      - name: Update plugin Links
+        run: |
+          sed  -e "s/PLACEHOLDERVERSION/${{github.ref_name}}/g" .github/plugin_template.yaml > plugin.yaml
+
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v4
