@@ -29,7 +29,7 @@ jobs:
           branch: "update-plugin-links-${{github.ref_name}}"
           title: "Update Plugin Artifacts Links for ${{github.ref_name}}"
           delete-branch: true
-          base: master
+          base: main
           add-paths: |
             plugin.yaml
       # - name: Send Slack message (Workflow)
